@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/common.css' />
+  </head>
+  <body>
+    <section class="visualizer">
+    </section>
+    <div class="title">
+        <span id="title"></span>
+        <span id="duration"></span>
+    </div>
+    <div class="slider">
+        <div class="progress"></div>
+    </div>
+    <div class="toolbar">
+        <div class="btn" id="prev" title="上一首">
+            <div class="icon-previous"></div>
+            <div class="icon-previous ml-18"></div>
+        </div>
+        <div class="btn pause" id="stop" title="停止">
+            <div class="icon-pause"></div>
+        </div>
+        <div class="btn resume" id="resume" title="继续">
+            <div class="icon-resume"></div>
+        </div>
+        <div class="btn" id="next" title="下一首">
+            <div class="icon-next ml8"></div>
+            <div class="icon-next"></div>
+        </div>
+        <input id="volume" type="range" min="0" max="100" value="60" style="display:none">
+    </div>
+    <nav>
+        <ul id="playlist">
+            <% files.forEach(function (filename) {%>
+            <li>
+                <a href="javascript:;" title="<%= filename %>">
+                    <div class="play">
+                        <div class="icon-play"></div>
+                    </div>
+                </a>
+                <%= filename.replace('.mp3', '') %>
+                </li>
+            <%})%>
+        </ul>
+    </nav>
+    <script src="/javascripts/Visualizer.js"></script>
+    <script src="/javascripts/index.js"></script>
+  </body>
+</html>
